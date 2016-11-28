@@ -5,43 +5,43 @@ angular.module('LunchCheck', [])
 
 LunchCheckController.$inject = ['$scope'];
 function LunchCheckController($scope){
-$scope.lunchList = "";
-$scope.lunchListElt= 0;
-$scope.message= "";
+$scope.lunchList = null;
+$scope.lunchListElt = 0;
+$scope.message = " ";
 
-$scope.displayNumberElt = function (){
+$scope.display = function (){
   var arraysOfStrings = splitArray($scope.lunchList);
   $scope.lunchListElt = arraysOfStrings.length;
-  console.log($scope.lunchListElt);
   var strMsg = displayMessage($scope.lunchListElt);
-  console.log(strMsg);
   $scope.message = displayMessage($scope.lunchListElt);
 }
 
 function splitArray (string){
-  var cal=0;
+  var cal = 0;
+  if(string !== null && string !== ""){
   return cal = string.split(',');
+}
+return cal;
 }
 
 function displayMessage(elt){
-  var str="";
-  // elt.toInt();
-if(elt=1){
-  return str= "Enjoy!";
-}else if (elt=2) {
-  return str= "Enjoy!";
-}
-else if (elt=3) {
-  return str= "Enjoy!";
-}
-else if (elt>3) {
-  return str= "Too much!";
-}
-else return str;
-}
+  var str = "";
+
+  if(elt===1){
+    return str = "Enjoy!";
+  }else if (elt===2) {
+    return str = "Enjoy!";
+  }
+  else if (elt===3) {
+    return str = "Enjoy!";
+  }
+  else if (elt>3) {
+    return str = "Too much!";
+  }
+    else return str ="Please enter data first";
+  }
 
 }
-
 
 
 })();

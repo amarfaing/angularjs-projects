@@ -15,15 +15,14 @@
          <div class="form-group">
              <input id="lunch-menu" type="text"
              ng-model="lunchList"
-             placeholder="list comma separated dishes you usually have for lunch"
+
              class="form-control">
          </div>
          <div class="form-group">
-             <button class="btn btn-default" ng-click="displayNumberElt();">Check If Too Much</button>
+             <button class="btn btn-default" ng-click="display();">Check If Too Much</button>
          </div>
          <div class="form-group message">
-           Number of lunch elements: {{lunchListElt}}
-           <br>
+           <!-- Number of lunch elements: {{lunchListElt}} -->
            {{message}}
          </div>
    </div>
