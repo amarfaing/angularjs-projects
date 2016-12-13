@@ -1,6 +1,6 @@
 <ol>
-  <li ng-repeat="item in found">
+  <li ng-repeat="item in list.found">
     {{item.name}}, {{item.short_name}} , {{item.description}}
-    <button ng-click="found.splice($index, 1);">Remove Item</button>
+    <button ng-click="list.onRemove({item : item});">Remove Item</button>
   </li>
 </ol>

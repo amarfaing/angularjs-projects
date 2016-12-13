@@ -10,13 +10,15 @@ angular.module('NarrowItDownApp', [])
 
 function FoundItemsDirective() {
   var ddo = {
-    templateUrl: 'foundItems.html',
+    templateUrl : 'foundItems.html',
     scope: {
       found: '<',
       onRemove: '&'
-    }
+    },
+    controller: FoundItemsDirectiveController,
+    controllerAs: 'list',
+    bindToController: true
   };
-
   return ddo;
 }
 
@@ -29,8 +31,8 @@ function NarrowItDownController(MenuSearchService){
 
   promise.then(function (response) {
 
-        list.found = [];
         list.items = response.data;
+        list.found = [];
 
         if(list.searchTerm){
          for(var i = 0; i < list.items.menu_items.length; i++) {
@@ -45,6 +47,11 @@ function NarrowItDownController(MenuSearchService){
      console.log("error");
    })
 
+  };
+
+  list.removeItem = function (item) {
+      var index = list.found.indexOf(item);
+      list.found.splice(index, 1);
   };
 
 
@@ -63,9 +70,9 @@ service.getMatchedMenuItems = function (searchTerm){
   return response;
   };
 
-  service.removeItem = function (itemIndex) {
-      found.splice(itemIndex, 1);
-   };
+}
+
+function FoundItemsDirectiveController(){
 
 }
 
