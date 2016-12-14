@@ -11,18 +11,14 @@
 <body  ng-app='LunchCheck'>
    <div class="container" ng-controller='LunchCheckController'>
      <h1>Lunch Checker</h1>
-
          <div class="form-group">
-             <input id="lunch-menu" type="text"
-             ng-model="lunchList"
-
-             class="form-control">
+             <input id="lunch-menu" type="text" ng-model="lunchList" class="form-control">
          </div>
          <div class="form-group">
              <button class="btn btn-default" ng-click="display();">Check If Too Much</button>
          </div>
          <div class="form-group message">
-           <!-- Number of lunch elements: {{lunchListElt}} -->
+           Number of lunch elements: {{lunchListElt}} <br>
            {{message}}
          </div>
    </div>
