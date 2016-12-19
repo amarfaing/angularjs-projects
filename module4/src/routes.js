@@ -30,20 +30,20 @@ function RoutesConfig($stateProvider, $urlRouterProvider) {
       }]
     }
 
-  });
+  })
 
-  // Items List page
-    // .state('items', {
-    //   url: '/items/{category}',
-    //   templateUrl: 'src/menu/templates/items.template.html',
-    //   controller: 'ItemsController as category',
-    //   resolve: {
-    //     items: ['$stateParams', 'MenuDataService',
-    //            function ($stateParams, MenuDataService) {
-    //             return MenuDataService.getItemsForCategory($stateParams.category);
-    //            }]
-    //   }
-    //});
+  //Items List page
+    .state('items', {
+      url: '/items/{category}',
+      templateUrl: 'src/templates/items.template.html',
+      controller: 'ItemsController as category',
+      resolve: {
+        items: ['$stateParams', 'MenuDataService',
+               function ($stateParams, MenuDataService) {
+                return MenuDataService.getItemsForCategory($stateParams.category);
+               }]
+      }
+    });
 
 }
 
