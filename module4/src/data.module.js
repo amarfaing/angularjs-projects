@@ -1,6 +1,12 @@
 (function () {
 'use strict';
 
-angular.module('Data', ['ui.router']);
+angular.module('data', []);
+
+angular.module('data')
+  .config(function () {
+  })
+  .run(function () {
+  });
 
 })();

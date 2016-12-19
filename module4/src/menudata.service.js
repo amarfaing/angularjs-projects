@@ -1,22 +1,49 @@
 (function () {
 'use strict';
 
-angular.module('MenuApp')
-.service('MenuDataService', MenuDataService)
-.constant('ApiPath', "https://davids-restaurant.herokuapp.com");
+angular.module('data')
+.service('MenuDataService', MenuDataService);
 
-MenuDataService.$inject = ['$http', 'ApiPath']
-function MenuDataService($http, ApiPath){
+MenuDataService.$inject = ['$q','$http']
+function MenuDataService($q, $http){
   var service = this;
 
   service.getAllCategories = function (){
-    var response = $http({
+    var promise = $http({
       method : "GET",
-      url: (ApiPath + "/categories.json")
+      url: ("https://davids-restaurant.herokuapp.com/categories.json")
       });
 
-    return response;
+      promise.then(function (response) {
+       return response.data;
+
+     }).catch(function (error) {
+       console.log(error);
+     });
+
+    return promise;
     };
+
+    // service.getItemsForCategory = function (categoryShortName) {
+    //
+    //       var promise = $http({
+    //         method:'GET',
+    //         url:'https://davids-restaurant.herokuapp.com/menu_items.json',
+    //         params:{
+    //           category: categoryShortName
+    //         }
+    //       });
+    //
+    //       promise.then(function (response) {
+    //         return response.data.menu_items;
+    //
+    //       }).catch(function (error) {
+    //         console.log(error);
+    //       });
+    //
+    //       return promise;
+    //     };
+
 
 }
 
