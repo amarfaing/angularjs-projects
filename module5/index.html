@@ -51,7 +51,7 @@
                   <span class="glyphicon glyphicon-cutlery"></span><br class="hidden-xs"> Menu</a>
               </li>
               <li>
-                <a href="#">
+                <a ui-sref="newsletter.myinfo">
                   <span class="glyphicon glyphicon-info-sign"></span><br class="hidden-xs"> My Info</a>
               </li>
               <li>
@@ -106,7 +106,7 @@
         </div>
         <div class="text-center">
           &copy; Copyright David Chu's China Bistro 2016 |
-          <a ui-sref="admin.auth">Admin</a></div>
+          <!-- <a ui-sref="admin.auth">Admin</a></div> -->
       </div>
     </footer>
 
@@ -139,8 +139,11 @@
     <!-- Newsletter Module -->
     <script src="src/newsletter/newsletter.module.js"></script>
     <script src="src/newsletter/newsletter.routes.js"></script>
-    <script src="src/newsletter/sign-up.controller.js"></script>
+
+
     <script src="src/newsletter/user.service.js"></script>
+    <script src="src/newsletter/sign-up.controller.js"></script>
+    <script src="src/newsletter/my-info.controller.js"></script>
 
 
 

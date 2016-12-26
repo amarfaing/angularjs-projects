@@ -15,6 +15,12 @@ function routeConfig ($stateProvider){
     abstract: true,
     templateUrl: 'src/newsletter/newsletter.html'
   })
+  .state('newsletter.myinfo', {
+    url:'/myinfo',
+    templateUrl: 'src/newsletter/myinfo.html',
+    controller: 'MyInfoController',
+    controllerAs: 'myInfoCtrl'
+  })
   .state('newsletter.signup', {
     url:'/signup',
     templateUrl: 'src/newsletter/signup.html',
